@@ -7,9 +7,6 @@ namespace CustomListUnitTesting
     [TestClass]
     class RemoveMethodUnitTest
     {
-        // checking the index of the item on your CustomList<T> to make sure it was removed
-        // check the count of the list to see if it was removed
-        // check the capacity of our list to make sure it decreased when we add an item beyond the original capacity??
         [TestMethod]
         public void Remove_Item_DecreaseCount_ByOne()
         {
@@ -122,7 +119,7 @@ namespace CustomListUnitTesting
             int number5 = 5;
             int number6 = 6;
             int number7 = 7;
-            int expected = 5;
+            int expected = 6;
             int actual;
 
             //Act
@@ -143,6 +140,31 @@ namespace CustomListUnitTesting
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void Remove_Item_NotAvailable()
+        {
+            CustomList<int> itemsToRemove = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            int expected;
+            int actual;
+
+            //Act
+            itemsToRemove.Add(item1);
+            itemsToRemove.Add(item2);
+            itemsToRemove.Add(item3);
+            itemsToRemove.Remove(item3);
+            itemsToRemove.Remove(item3);
+
+
+            actual;
+
+
+            //Assert
+            Assert.AreEqual();
+        }
+
     }
 
 }
