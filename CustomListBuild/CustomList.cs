@@ -48,5 +48,9 @@ namespace CustomListBuild
             count++;
         }
 
+        public void Remove(T itemToRemove)
+        {
+
+        }
     }
 }
