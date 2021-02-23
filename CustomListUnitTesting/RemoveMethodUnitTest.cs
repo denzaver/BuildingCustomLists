@@ -57,6 +57,33 @@ namespace CustomListUnitTesting
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Remove_Item_Check_Capacity() //removes the 5th item, checks capacity
+        {
+            //Arrange
+            CustomList<int> itemsToRemove = new CustomList<int>();
+            int number1 = 2;
+            int number2 = 3;
+            int number3 = 4;
+            int number4 = 5;
+            int number5 = 6;
+            int expected = 8;
+            int actual;
+
+            //Act
+            itemsToRemove.Add(number1);
+            itemsToRemove.Add(number2);
+            itemsToRemove.Add(number3);
+            itemsToRemove.Add(number4);
+            itemsToRemove.Add(number5);
+            itemsToRemove.Remove(number5);
+            actual = itemsToRemove.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
 
     }
 
