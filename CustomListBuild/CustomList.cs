@@ -13,7 +13,13 @@ namespace CustomListBuild
 
         private int count;
         private int capacity;
-        public int Count { get; }//Properties slideshow Health/health example
+        public int Count {
+            get
+            {
+                return count;
+            }
+            
+        }//Properties slideshow Health/health example
         public int Capacity { get; set; }
 
         //ctor

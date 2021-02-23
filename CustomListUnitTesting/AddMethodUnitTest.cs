@@ -169,7 +169,7 @@ namespace CustomListUnitTesting
             indexOfNumbers.Add(number6);
             indexOfNumbers.Add(number7);
 
-            actual = indexOfNumbers[2];
+            actual = indexOfNumbers[1];
 
             //Assert
             Assert.AreEqual(expected, actual);
