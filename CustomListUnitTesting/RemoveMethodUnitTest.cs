@@ -110,6 +110,39 @@ namespace CustomListUnitTesting
 
         }
 
+        [TestMethod]
+        public void Remove_ThreeItems_Check_NewIndex()
+        {
+            //Arrange
+            CustomList<int> itemsToRemove = new CustomList<int>();
+            int number1 = 1;
+            int number2 = 2;
+            int number3 = 3;
+            int number4 = 4;
+            int number5 = 5;
+            int number6 = 6;
+            int number7 = 7;
+            int expected = 5;
+            int actual;
+
+            //Act
+            itemsToRemove.Add(number1);
+            itemsToRemove.Add(number2);
+            itemsToRemove.Add(number3);
+            itemsToRemove.Add(number4);
+            itemsToRemove.Add(number5);
+            itemsToRemove.Add(number6);
+            itemsToRemove.Add(number7);
+            itemsToRemove.Remove(number2);
+            itemsToRemove.Remove(number3);
+            itemsToRemove.Remove(number4);
+
+            actual = itemsToRemove[2];
+   
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 
 }
