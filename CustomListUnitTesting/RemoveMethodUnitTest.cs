@@ -81,9 +81,34 @@ namespace CustomListUnitTesting
 
             //Assert
             Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+          public void Remove_Item_Check_NewCurretIndex()
+        {
+            //Arrange
+            CustomList<int> itemsToRemove = new CustomList<int>();
+            int number1 = 4;
+            int number2 = 5;
+            int number3 = 6;
+            int number4 = 7;
+            int expected = 6;
+            int actual;
+
+            //Act
+            itemsToRemove.Add(number1);
+            itemsToRemove.Add(number2);
+            itemsToRemove.Add(number3);
+            itemsToRemove.Add(number4);
+            itemsToRemove.Remove(number2);
+
+            actual = itemsToRemove[1];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
 
         }
-
 
     }
 
