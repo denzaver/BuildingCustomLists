@@ -79,9 +79,9 @@ namespace CustomListUnitTesting
             //Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestMethod]
-          public void Remove_Item_Check_NewCurretIndex()
+        public void Remove_Item_Check_NewCurretIndex()
         {
             //Arrange
             CustomList<int> itemsToRemove = new CustomList<int>();
@@ -135,7 +135,7 @@ namespace CustomListUnitTesting
             itemsToRemove.Remove(number4);
 
             actual = itemsToRemove[2];
-   
+
             //Assert
             Assert.AreEqual(expected, actual);
 
@@ -145,7 +145,7 @@ namespace CustomListUnitTesting
         {
             CustomList<int> itemsToRemove = new CustomList<int>();
             int item1 = 1;
-            int item2 = 2;
+            int item2 = 22;
             int item3 = 3;
             int expected;
             int actual;
@@ -154,11 +154,11 @@ namespace CustomListUnitTesting
             itemsToRemove.Add(item1);
             itemsToRemove.Add(item2);
             itemsToRemove.Add(item3);
-            itemsToRemove.Remove(item3);
-            itemsToRemove.Remove(item3);
+            itemsToRemove.Remove(4);  // removeAt is where you remove a spes index
+ 
 
 
-            actual;
+            actual = itemsToRemove;
 
 
             //Assert

@@ -10,6 +10,8 @@ namespace CustomListBuild
     {
         //member variables
         private T[] _items;  //SELF NOTE: this is an array "[]"
+        
+
 
         private int count;
         private int capacity;
@@ -20,7 +22,34 @@ namespace CustomListBuild
             }
             
         }//Properties slideshow Health/health example
-        public int Capacity { get; set; }
+        public int Capacity { 
+
+            get => capacity; 
+            
+        }
+
+        public T this[int i]
+        {
+            get
+            {
+                if (i < 0 || i >= count)
+                {
+                    throw new IndexOutOfRangeException($"Your selection is out or range.");
+                }
+                
+                return _items[i];
+            }
+            set
+            {
+                if (i < 0 || i >= count)
+                {
+                    throw new IndexOutOfRangeException($"Your selection is out or range.");
+                }
+
+                _items[i] = value;
+
+            }
+        }
 
         //ctor
         public CustomList()
@@ -51,9 +80,10 @@ namespace CustomListBuild
             count++;
         }
 
-        public void Remove(T itemToRemove)
+        public void Remove(T itemToRemove)  // DO NOT LOWER CAPACITY
         {
 
         }
+        
     }
 }
