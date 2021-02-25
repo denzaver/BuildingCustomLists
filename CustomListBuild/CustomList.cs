@@ -10,11 +10,10 @@ namespace CustomListBuild
     {
         //member variables
         private T[] _items;  //SELF NOTE: this is an array "[]"
-        
-
 
         private int count;
         private int capacity;
+
         public int Count {
             get
             {
@@ -45,9 +44,7 @@ namespace CustomListBuild
                 {
                     throw new IndexOutOfRangeException($"Your selection is out or range.");
                 }
-
                 _items[i] = value;
-
             }
         }
 
@@ -82,8 +79,25 @@ namespace CustomListBuild
 
         public void Remove(T itemToRemove)  // DO NOT LOWER CAPACITY
         {
+            T[] temp_array = new T[capacity];
 
+            for (int i = 0; i < count; i++)
+            {
+                if (_items[i].Equals(itemToRemove))
+                {
+                    do
+                    {
+                        _items[i] = _items[i + 1]; //SELF NOTE: this replaces the _items[i] with the thet index -->
+                        i++; //SELF NOTE: this should move us to the next index
+                    }
+                    while (i < count);
+
+                    count--; //SELF NOTE: 
+                    temp_array = _items;
+
+                }
+            }
+            _items = temp_array;
         }
-        
     }
 }

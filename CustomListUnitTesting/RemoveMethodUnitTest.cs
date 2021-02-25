@@ -5,7 +5,7 @@ using CustomListBuild;
 namespace CustomListUnitTesting
 {
     [TestClass]
-    class RemoveMethodUnitTest
+    public class RemoveMethodUnitTest
     {
         [TestMethod]
         public void Remove_Item_DecreaseCount_ByOne()
@@ -140,30 +140,30 @@ namespace CustomListUnitTesting
             Assert.AreEqual(expected, actual);
 
         }
-        [TestMethod]
-        public void Remove_Item_NotAvailable()
-        {
-            CustomList<int> itemsToRemove = new CustomList<int>();
-            int item1 = 1;
-            int item2 = 22;
-            int item3 = 3;
-            int expected;
-            int actual;
+        //[TestMethod]
+        //public void Remove_Item_NotAvailable()
+        //{
+        //    CustomList<int> itemsToRemove = new CustomList<int>();
+        //    int item1 = 1;
+        //    int item2 = 22;
+        //    int item3 = 3;
+        //    int expected;
+        //    int actual;
 
-            //Act
-            itemsToRemove.Add(item1);
-            itemsToRemove.Add(item2);
-            itemsToRemove.Add(item3);
-            itemsToRemove.Remove(4);  // removeAt is where you remove a spes index
- 
-
-
-            actual = itemsToRemove;
+        //    //Act
+        //    itemsToRemove.Add(item1);
+        //    itemsToRemove.Add(item2);
+        //    itemsToRemove.Add(item3);
+        //    itemsToRemove.Remove(4);  // removeAt is where you remove a spes index
 
 
-            //Assert
-            Assert.AreEqual();
-        }
+
+        //    actual = itemsToRemove;
+
+
+        //    //Assert
+        //    Assert.AreEqual();
+        //}
 
     }
 
