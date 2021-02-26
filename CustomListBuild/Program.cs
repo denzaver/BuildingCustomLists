@@ -14,8 +14,11 @@ namespace CustomListBuild
             custom.Add(2);
             custom.Add(3);
             custom.Add(4);
+            custom.Add(5);
             custom.Remove(3);
-            
+            custom.Remove(4);
+
+
         }
     }
 }

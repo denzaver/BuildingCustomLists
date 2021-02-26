@@ -78,8 +78,9 @@ namespace CustomListBuild
         }
 
         public void Remove(T itemToRemove)  // DO NOT LOWER CAPACITY
+            // 
         {
-            T[] temp_array = new T[capacity];
+            //T[] temp_array = new T[capacity]; -- turns out this does nothing to affect the code
 
             for (int i = 0; i < count; i++)
             {
@@ -88,16 +89,29 @@ namespace CustomListBuild
                     do
                     {
                         _items[i] = _items[i + 1]; //SELF NOTE: this replaces the _items[i] with the thet index -->
+                                                   // --- the last time it runs, its trying to access an index that ISNT THERE
+
+                        if (_items[i].Equals(count - 1))   // the if statement is attempt say that when you last item in the "count", set it to zero, 
+                                                                //since we're already moved/copied over everything to the spot just before                     
+                        {               // if/else   count -1,  null
+                            i = null;
+                        }
+                        else
+                        {
+                            ;
+                        }
+
+
                         i++; //SELF NOTE: this should move us to the next index
                     }
                     while (i < count);
 
                     count--; //SELF NOTE: 
-                    temp_array = _items;
+                    //temp_array = _items;
 
                 }
             }
-            _items = temp_array;
+            //_items = temp_array;  -- turns out this does nothing to affect the code
         }
     }
 }
