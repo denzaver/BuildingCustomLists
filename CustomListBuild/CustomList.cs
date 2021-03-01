@@ -14,21 +14,23 @@ namespace CustomListBuild
         private int count;
         private int capacity;
 
-        public int Count {
+        public int Count 
+        {
             get
             {
                 return count;
             }
             
-        }//Properties slideshow Health/health example
-        public int Capacity { 
+        } 
+        public int Capacity 
+        { 
 
             get => capacity; 
             
         }
 
-        public T this[int i]
-        {
+        public T this[int i]                      // set this to an argument out of range exception, because you are providing an ARGUMENT to the array
+        {                                           // vs an index out of range, where we cant even find the index
             get
             {
                 if (i < 0 || i >= count)
@@ -77,41 +79,34 @@ namespace CustomListBuild
             count++;
         }
 
-        public void Remove(T itemToRemove)  // DO NOT LOWER CAPACITY
-            // 
+        public bool Remove(T itemToRemove)  // DO NOT LOWER CAPACITY
         {
-            //T[] temp_array = new T[capacity]; -- turns out this does nothing to affect the code
-
             for (int i = 0; i < count; i++)
             {
                 if (_items[i].Equals(itemToRemove))
                 {
-                    do
+                    // for loops
+                    for (int j = i; j < count - 1; j++)  //basing off the parent loop
                     {
-                        _items[i] = _items[i + 1]; //SELF NOTE: this replaces the _items[i] with the thet index -->
-                                                   // --- the last time it runs, its trying to access an index that ISNT THERE
-
-                        if (_items[i].Equals(count - 1))   // the if statement is attempt say that when you last item in the "count", set it to zero, 
-                                                                //since we're already moved/copied over everything to the spot just before                     
-                        {               // if/else   count -1,  null
-                            i = null;
-                        }
-                        else
-                        {
-                            ;
-                        }
-
-
-                        i++; //SELF NOTE: this should move us to the next index
+                        _items[j] = _items[j + 1];
                     }
-                    while (i < count);
-
-                    count--; //SELF NOTE: 
-                    //temp_array = _items;
-
+                    T[] temp_Array = new T[capacity]; //self note: this is pretty much the ADD METHOD, the "detour"
+                    for (int j = 0; j < count -1; j++)  // chose to keep this as j because it doesnt exist outside of the scope. you can call it whatever you want 
+                    {
+                        temp_Array[j] = _items[j];
+                    }
+                    _items = new T[capacity];
+                    for (int k = 0; k < count; k++)
+                    {
+                        _items[k] = temp_Array[k];
+                    }
+                    count--;
+                    return true;
                 }
             }
-            //_items = temp_array;  -- turns out this does nothing to affect the code
+            return false;
         }
+
+       
     }
 }

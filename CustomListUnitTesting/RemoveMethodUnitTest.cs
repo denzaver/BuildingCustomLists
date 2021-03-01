@@ -89,7 +89,7 @@ namespace CustomListUnitTesting
             int number2 = 5;
             int number3 = 6;
             int number4 = 7;
-            int expected = 6;
+            int expected = 5;
             int actual;
 
             //Act
@@ -97,9 +97,9 @@ namespace CustomListUnitTesting
             itemsToRemove.Add(number2);
             itemsToRemove.Add(number3);
             itemsToRemove.Add(number4);
-            itemsToRemove.Remove(number2);
+            itemsToRemove.Remove(number1);
 
-            actual = itemsToRemove[1];
+            actual = itemsToRemove[0];
 
             //Assert
             Assert.AreEqual(expected, actual);
